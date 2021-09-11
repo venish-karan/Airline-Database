@@ -17,3 +17,7 @@ class Flight(models.Model):
     def __str__(self):
         return f"{self.id}: from {self.origin} to {self.destination} for duration of {self.duration}"
 
+class Passengers(models.Model):
+    first = models.CharField(max_length=64)
+    last = models.CharField(max_length=64)
+    flight = models.ManyToManyField(Flight, blank=True, related_name="passengers")
