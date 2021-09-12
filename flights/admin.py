@@ -4,6 +4,12 @@ from .models import Airport, Flight, Passengers
 
 # Register your models here.
 
+class FlightAdmin(admin.ModelAdmin):
+    list_display = ("id", "origin", "destination", "duration")
+
+class PassengerAdmin(admin.ModelAdmin):
+    filter_horizontal = ("flights",)
+
 admin.site.register(Airport)
-admin.site.register(Flight)
-admin.site.register(Passengers)
+admin.site.register(Flight, FlightAdmin)# use the class here
+admin.site.register(Passengers, PassengerAdmin)# use the passenger class here to see the admin interface as you like

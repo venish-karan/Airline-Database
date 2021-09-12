@@ -4,7 +4,9 @@
   <h1>Flights</h1>
   <ul>
       {% for flight in flights %}
+      <a href="{% url 'flights:flight' flight.id %}">
          <li>Flight {{ flight.id}}: {{ flight.origin }} to {{flight.destination }}</li>
-       {% endfor %}
+       </a>
+         {% endfor %}
         </ul>
 {% endblock %}
